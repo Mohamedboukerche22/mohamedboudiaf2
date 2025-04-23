@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^(.*)$ /public/$1 [L]
+    
+    # Remove .php extension
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.*)$ $1.php [L]
+    
+    RewriteCond %{REQUEST_URI} !^/public/(login\.php|register\.php|index\.php|news\.php|view_news\.php)
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME} \.php$
+    RewriteCond %{HTTP_COOKIE} !PHPSESSID=[^;]+
+    RewriteRule ^(.*)$ /public/login.php [R,L]
+</IfModule>
+
+Options -Indexes
+
+ErrorDocument 403 /public/403.php
+ErrorDocument 404 /public/404.php
+ErrorDocument 500 /public/500.php
