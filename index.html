@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الموقع الرسمي لثانوية محمد بوضياف - سيدي لحسن، ولاية سيدي بلعباس">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>ثانوية محمد بوضياف</title>
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/image.png" alt="شعار الثانوية" class="school-logo">
+                    <div>
+                        <h1>ثانوية محمد بوضياف</h1>
+                        <p class="tagline">نحو تعليم متميز وبناء أجيال واعية</p>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="theme-toggle" id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> عن الثانوية</a></li>
+                    <li><a href="#departments"><i class="fas fa-graduation-cap"></i> الشعب الدراسية</a></li>
+                    <li><a href="timetable/timetable.html"><i class="fas fa-calendar-alt"></i> استعمال الزمن</a></li>
+                    <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> موقع الثانوية</a></li>
+                    <li><a href="points/student.php"><i class="fas fa-chart-line"></i> المعدلات</a></li>
+                    <li><a ><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 style="font-size: 40px;">مرحبا بكم في ثانوية محمد بوضياف</h2>
+                <p>مؤسسة تعليمية رائدة تهدف إلى إعداد جيل متميز علمياً وثقافياً</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">تعرف على الثانوية</a>
+                    <a href="points/student.php" class="btn btn-secondary">الاطلاع على النتائج</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main class="container">
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-school"></i> حول الثانوية</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-content">
+                <a href="map.html"><div class="about-image">
+                    <img src="images/map.png" alt="مبنى الثانوية" class="school-image">
+                    <div class="image-overlay">
+                        <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
+                    </div></a>
+                </div>
+                
+                <div class="about-text">
+                    <p>ثانوية محمد بوضياف هي مؤسسة تعليمية متميزة تقع في بلدية سيدي لحسن، ولاية سيدي بلعباس. تأسست عام 1985 وتضم أكثر من 600 طالب وطالبة.</p>
+                    <p>تتميز الثانوية بكوادر تعليمية مؤهلة ومرافق حديثة تواكب تطورات العصر، مما يمكنها من تقديم تعليم نوعي في بيئة محفزة للإبداع والتميز.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="600">0</div>
+                            <div class="stat-label">طالب وطالبة</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="4">0</div>
+                            <div class="stat-label">شعب دراسية</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="30">0</div>
+                            <div class="stat-label">أستاذ</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="85">0</div>
+                            <div class="stat-label">% نجاح</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departments Section -->
+        <section id="departments" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-book-open"></i> الشعب الدراسية</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>شعبة علوم تجريبية</h3>
+                </div>
+                
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>شعبة آداب وفلسفة</h3>
+                </div>
+                
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>شعبة تقني رياضي</h3>
+                </div>
+                
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>شعبة تسير واقتصاد</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-pie"></i> النتائج والمعدلات</h2>
+                <div class="section-divider"></div>
+            </div>
+                    <div class="results-cta">
+                        <p>للاطلاع على النتائج التفصيلية يرجى زيارة نظام إدارة النتائج</p>
+                        <a href="Error-404-Page/404.html" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> الانتقال إلى الموقع
+                        </a>
+                    </div>
+        </section>
+        <section id="news" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i> آخر الأخبار</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="section-footer">
+                <a href="school_management/public/view_news.php" class="btn btn-outline">عرض جميع الأخبار</a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ثانوية محمد بوضياف</h3>
+                    <p>بلدية سيدي لحسن، ولاية سيدي بلعباس</p>
+                    <p>البريد الإلكتروني: lyc.mohamed.boudhiaf@gmail.com</p>
+                    <p>الهاتف: 48550251</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+                        <li><a href="#about"><i class="fas fa-arrow-left"></i> عن الثانوية</a></li>
+                        <li><a href="#departments"><i class="fas fa-arrow-left"></i> الشعب الدراسية</a></li>
+                        <li><a href="timetable/timetable.html"><i class="fas fa-arrow-left"></i> استعمال الزمن</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/groups/244502353695403/"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                    <div class="map-link">
+                        <a href="map.html"><i class="fas fa-map-marker-alt"></i> خريطة الموقع</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2025 - ثانوية محمد بوضياف</p>
+                <div class="footer-links">
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">شروط الاستخدام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
