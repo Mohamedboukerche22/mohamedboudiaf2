@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استعمال الزمن</title>
+    <link rel="stylesheet" href="sc.css">
+    <link rel="script" href="sc.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="timetable-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-alt"></i> استعمال الزمن</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="timetable-selector">
+                <form id="timetableForm" class="timetable-form">
+                    <div class="form-group">
+                        <label for="class"><i class="fas fa-users-class"></i> اختر الصف:</label>
+                        <select id="class" name="class" required>
+                            <option value=1s1"1s1</option>
+                                <option value=1s2>1s2</option>
+                                <option value=1s3>1s3</option>
+                                <option value=1s4>1s4</option>
+                                <option value=1s5>1s5</option>
+                                <option value=1l1>1l1</option>
+                                <option value=1l2>1l2</option>
+                                <option value=1l3>1l3</option>
+                                <option value=1l4>1l4</option>
+                                <option value=2tm>2tm</option>
+                                <option value=2s1>2s1</option>
+                                <option value=2s2>2s2</option>
+                                <option value=2l1>2l1</option>
+                                <option value=2l2>2l2</option>
+                                <option value=2l3>2l3</option>
+                                <option value=3s1>3s1</option>
+                                <option value=3tm>3tm</option>
+                                <option value=3l1>3l1</option>
+                                <option value=3l2>3l2</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i> عرض استعمال الزمن
+                    </button>
+                </form>
+            </div>
+
+            <!-- Timetable Display (initially hidden) -->
+            <div id="timetableDisplay" style="display: none;">
+                <div class="timetable-display">
+                    <div class="timetable-header">
+                        <h3 id="timetableTitle">استعمال زمن</h3>
+                        <div class="timetable-actions">
+                            <button class="btn btn-secondary" onclick="window.print()">
+                                <i class="fas fa-print"></i> طباعة
+                            </button>
+                            <button class="btn btn-secondary" id="zoomInBtn">
+                                <i class="fas fa-search-plus"></i> تكبير
+                            </button>
+                            <button class="btn btn-secondary" id="zoomOutBtn">
+                                <i class="fas fa-search-minus"></i> تصغير
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="timetable-image-container">
+                        <img src="" alt="استعمال الزمن" id="timetableImage" class="timetable-image">
+                    </div>
+                    
+                    <div class="timetable-footer">
+                        <p><i class="fas fa-info-circle"></i> آخر تحديث: <span id="updateDate"></span></p>
+                    </div>
+                    <a href="../index.html" class="back-button">
+                        <img src="../images/return.png" alt="Back">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
