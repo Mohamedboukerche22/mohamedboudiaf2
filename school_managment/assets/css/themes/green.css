@@ -1,0 +1,9 @@
+body[data-theme="green"] {
+    --primary-color: #4CAF50;
+    --secondary-color: #8BC34A;
+    --dark-color: #2E7D32;
+    --light-color: #E8F5E9;
+    --text-color: #1B5E20;
+    --text-light: #689F38;
+    --shadow: 0 4px 6px rgba(76, 175, 80, 0.1);
+}

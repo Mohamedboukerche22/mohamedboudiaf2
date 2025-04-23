@@ -1,0 +1,26 @@
+body[data-theme="dark"] {
+    --primary-color: #3a7bd5;
+    --secondary-color: #00d2ff;
+    --dark-color: #121212;
+    --light-color: #1e1e1e;
+    --text-color: #f5f5f5;
+    --text-light: #b0b0b0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .news-item,
+body[data-theme="dark"] .single-news,
+body[data-theme="dark"] .admin-form,
+body[data-theme="dark"] .data-table {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body[data-theme="dark"] .data-table th {
+    background-color: #333;
+}
+
+body[data-theme="dark"] .data-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
