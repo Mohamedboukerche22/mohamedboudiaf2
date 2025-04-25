@@ -1,24 +1,18 @@
 <?php
 session_start();
-
-// Database configuration
 define('DB_HOST', 'localhost');
-define('DB_USER', 'moham');
-define('DB_PASS', '');
+define('DB_USER', 'mohamedboukerche');
+define('DB_PASS', 'admin12345');
 define('DB_NAME', 'school_management');
 
-// Create connection
+
+
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// Set charset
 $conn->set_charset("utf8");
-
-// Theme functions
 function getThemeColor($user_id = null) {
     global $conn;
     
@@ -34,7 +28,7 @@ function getThemeColor($user_id = null) {
         }
     }
     
-    return 'default'; // Default theme
+    return 'default'; 
 }
 
 function updateTheme($user_id, $theme_color) {
