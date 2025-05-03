@@ -3,374 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جدول الدروس المدرسية</title>
+    <meta name="description" content="الموقع الرسمي لثانوية محمد بوضياف - سيدي لحسن، ولاية سيدي بلعباس">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --accent-color: #f5f7fa;
-            --text-color: #2d3436;
-            --light-text: #fff;
-            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            --bg-color: #f5f7fa;
-            --card-color: #ffffff;
-        }
-
-        .dark-mode {
-            --primary-color: #a29bfe;
-            --secondary-color: #6c5ce7;
-            --accent-color: #2d3748;
-            --text-color: #f5f7fa;
-            --light-text: #f5f7fa;
-            --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            --bg-color: #1a202c;
-            --card-color: #2d3748;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        body {
-            background: var(--bg-color);
-            min-height: 100vh;
-            color: var(--text-color);
-            direction: rtl;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            animation: fadeIn 1s ease;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 0;
-            width: 50%;
-            height: 4px;
-            background: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        .description {
-            font-size: 1.1rem;
-            color: var(--text-color);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        .class-selector {
-            background: var(--card-color);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
-            animation: slideUp 0.8s ease;
-        }
-
-        .selector-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .selector-title i {
-            color: var(--secondary-color);
-        }
-
-        .grade-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .grade-btn {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .grade-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
-        }
-
-        .grade-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
-
-        .grade-btn:hover::after {
-            opacity: 1;
-        }
-
-        .grade-btn span {
-            position: relative;
-            z-index: 2;
-        }
-
-        .timetable-display {
-            background: var(--card-color);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            display: none;
-            animation: fadeIn 0.8s ease;
-        }
-
-        .timetable-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .timetable-image-container {
-            position: relative;
-            margin: 0 auto;
-            max-width: 800px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .dark-mode .timetable-image-container {
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .timetable-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .timetable-image:hover {
-            transform: scale(1.02);
-        }
-
-        .back-btn {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .back-btn:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            border: none;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            color: var(--text-color);
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .grade-buttons {
-                flex-direction: column;
-            }
-            
-            .grade-btn {
-                width: 100%;
-            }
-        }
-    </style>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>ثانوية محمد بوضياف</title>
 </head>
-<body class="light-mode">
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <div class="container">
-        <header>
-            <h1>جدول الدروس المدرسية</h1>
-            <p class="description">اختر صفك الدراسي لعرض جدول الحصص الأسبوعي الخاص بك. يمكنك رؤية جميع المواد وأوقاتها بطريقة منظمة وجميلة.</p>
-        </header>
-
-        <div class="class-selector">
-            <h2 class="selector-title"><i class="fas fa-graduation-cap"></i> اختر الصف الدراسي</h2>
-            <div class="grade-buttons">
-                <button class="grade-btn" data-grade="1"><span>1s1</span></button>
-                <button class="grade-btn" data-grade="2"><span>1s2 </span></button>
-                <button class="grade-btn" data-grade="3"><span>1s3</span></button>
-                <button class="grade-btn" data-grade="4"><span>1s4 </span></button>
-                <button class="grade-btn" data-grade="5"><span>2s1</span></button>
-                <button class="grade-btn" data-grade="6"><span>2s2 </span></button>
-                <button class="grade-btn" data-grade="7"><span>1l1 </span></button>
-                <button class="grade-btn" data-grade="8"><span>1l2 </span></button>
-                <button class="grade-btn" data-grade="9"><span>2l1 </span></button>
-                <button class="grade-btn" data-grade="10"><span>2l2 </span></button>
-                <button class="grade-btn" data-grade="11"><span>2l3 </span></button>
-                <button class="grade-btn" data-grade="12"><span>3l1 </span></button>
-                <button class="grade-btn" data-grade="13"><span>3s1 </span></button>
-                <button class="grade-btn" data-grade="14"><span>3s2 </span></button>
-                <button class="grade-btn" data-grade="15"><span>3l1 </span></button>
-            </div>
-        </div>
-
-        <div class="timetable-display" id="timetableDisplay">
-            <h2 class="timetable-title" id="timetableTitle">جدول الصف الأول</h2>
-            <div class="timetable-image-container">
-                <img src="timetable1.jpg" alt="جدول الدروس" class="timetable-image" id="timetableImage">
-            </div>
-            <button class="back-btn" id="backBtn"><i class="fas fa-arrow-right"></i> العودة إلى اختيار الصف</button>
-        </div>
+<body>
+    <div class="loading-screen">
+        <div class="spinner"></div>
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة © 2023 مدرسة النخبة العربية</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/image.png" alt="شعار الثانوية" class="school-logo">
+                    <div>
+                        <h1>ثانوية محمد بوضياف</h1>
+                        <p class="tagline">نحو تعليم متميز وبناء أجيال واعية</p>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="theme-toggle" id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> عن الثانوية</a></li>
+                    <li><a href="#departments"><i class="fas fa-graduation-cap"></i> الشعب الدراسية</a></li>
+                    <li><a href="timetable/timetable.html"><i class="fas fa-calendar-alt"></i> استعمال الزمن</a></li>
+                    <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> موقع الثانوية</a></li>
+                    <li><a href="points/student.php"><i class="fas fa-chart-line"></i> المعدلات</a></li>
+                    <li><a ><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 style="font-size: 40px;">مرحبا بكم في ثانوية محمد بوضياف</h2>
+                <p>مؤسسة تعليمية رائدة تهدف إلى إعداد جيل متميز علمياً وثقافياً</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">تعرف على الثانوية</a>
+                    <a href="http://lyceemohamedboudiaf1.ct.ws" class="btn btn-secondary">الاطلاع على النتائج</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main class="container">
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-school"></i> حول الثانوية</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-content">
+                <a href="map.html"><div class="about-image">
+                    <img src="images/map.png" alt="مبنى الثانوية" class="school-image">
+                    <div class="image-overlay">
+                        <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
+                    </div></a>
+                </div>
+                
+                <div class="about-text">
+                    <p>ثانوية محمد بوضياف هي مؤسسة تعليمية متميزة تقع في بلدية سيدي لحسن، ولاية سيدي بلعباس. تأسست عام 1985 وتضم أكثر من 600 طالب وطالبة.</p>
+                    <p>تتميز الثانوية بكوادر تعليمية مؤهلة ومرافق حديثة تواكب تطورات العصر، مما يمكنها من تقديم تعليم نوعي في بيئة محفزة للإبداع والتميز.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="600">0</div>
+                            <div class="stat-label">طالب وطالبة</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="4">0</div>
+                            <div class="stat-label">شعب دراسية</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="30">0</div>
+                            <div class="stat-label">أستاذ</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="85">0</div>
+                            <div class="stat-label">% نجاح</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departments Section -->
+        <section id="departments" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-book-open"></i> الشعب الدراسية</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>شعبة علوم تجريبية</h3>
+                </div>
+                
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>شعبة آداب وفلسفة</h3>
+                </div>
+                
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>شعبة تقني رياضي</h3>
+                </div>
+                
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>شعبة تسير واقتصاد</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-pie"></i> النتائج والمعدلات</h2>
+                <div class="section-divider"></div>
+            </div>
+                    <div class="results-cta">
+                        <p>للاطلاع على النتائج التفصيلية يرجى زيارة نظام إدارة النتائج</p>
+                        <a href="http://lyceemohamedboudiaf1.ct.ws" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> الانتقال إلى الموقع
+                        </a>
+                    </div>
+        </section>
+        <section id="news" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i>المعرض الالكتروني للمؤسسة</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="section-footer">
+                <a href="project/projects.html" class="btn btn-outline"> المعرض الالكتروني   </a>
+            </div>
+        </section>
+        <section id="news" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i> النوادي </h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="section-footer">
+                <a href="#" class="btn btn-outline">عرض جميع النوادي</a>
+            </div>
+        </section>
+
+        <section id="news" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i> آخر الأخبار</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="section-footer">
+                <a href="#" class="btn btn-outline">عرض جميع الأخبار</a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ثانوية محمد بوضياف</h3>
+                    <p>بلدية سيدي لحسن، ولاية سيدي بلعباس</p>
+                    <p>البريد الإلكتروني: lyc.mohamed.boudhiaf@gmail.com</p>
+                    <p>الهاتف: 48550251</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+                        <li><a href="#about"><i class="fas fa-arrow-left"></i> عن الثانوية</a></li>
+                        <li><a href="#departments"><i class="fas fa-arrow-left"></i> الشعب الدراسية</a></li>
+                        <li><a href="timetable/timetable.html"><i class="fas fa-arrow-left"></i> استعمال الزمن</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/groups/244502353695403/"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                    <div class="map-link">
+                        <a href="map.html"><i class="fas fa-map-marker-alt"></i> خريطة الموقع</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2025 - ثانوية محمد بوضياف</p>
+                <div class="footer-links">
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">شروط الاستخدام</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const gradeButtons = document.querySelectorAll('.grade-btn');
-            const timetableDisplay = document.getElementById('timetableDisplay');
-            const timetableTitle = document.getElementById('timetableTitle');
-            const timetableImage = document.getElementById('timetableImage');
-            const backBtn = document.getElementById('backBtn');
-            const classSelector = document.querySelector('.class-selector');
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            const timetableImages = {
-                '1': 'timetable1.jpg',
-                '2': 'timetable2.jpg',
-                '3': 'timetable3.jpg',
-                '4': 'timetable4.jpg',
-                '5': 'timetable5.jpg',
-                '6': 'timetable6.jpg'
-            };
-            themeToggle.addEventListener('click', function() {
-                body.classList.toggle('dark-mode');
-                const icon = this.querySelector('i');
-                if (body.classList.contains('dark-mode')) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
-            });
-            gradeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const grade = this.getAttribute('data-grade');
-                    const gradeName = this.textContent.trim();
-                    
-                    // Update timetable display
-                    timetableTitle.textContent = `جدول ${gradeName}`;
-                    timetableImage.src = timetableImages[grade];
-                    timetableImage.alt = `جدول ${gradeName}`;
-                    classSelector.style.display = 'none';
-                    timetableDisplay.style.display = 'block';
-                });
-            });
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-            backBtn.addEventListener('click', function() {
-                classSelector.style.display = 'block';
-                timetableDisplay.style.display = 'none';
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-            
