@@ -1,15 +1,4 @@
 :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --accent-color: #f5f7fa;
-            --text-color: #2d3436;
-            --light-text: #fff;
-            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            --bg-color: #f5f7fa;
-            --card-color: #ffffff;
-        }
-
-        .dark-mode {
             --primary-color: #a29bfe;
             --secondary-color: #6c5ce7;
             --accent-color: #2d3748;
@@ -18,6 +7,22 @@
             --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             --bg-color: #1a202c;
             --card-color: #2d3748;
+
+
+            
+           
+        }
+
+        .dark-mode {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #f5f7fa;
+            --text-color: #2d3436;
+            --light-text: #fff;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --bg-color: #f5f7fa;
+            --card-color: #ffffff;
+            
         }
 
         * {
