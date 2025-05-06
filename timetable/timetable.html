@@ -82,11 +82,11 @@
                 
             };
             themeToggle.addEventListener('click', function() {
-                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
                 const icon = this.querySelector('i');
-                if (body.classList.contains('dark-mode')) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
+                if (body.classList.contains('light-mode')) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
                 } else {
                     icon.classList.remove('fa-sun');
                     icon.classList.add('fa-moon');
@@ -110,9 +110,9 @@
             });
         });
     </script>
-    <a href="index.html" class="back-button">
+    <!--<a href="index.html" class="back-button">
     <img src="images/return.png" alt="Back">
-</a>
+</a>-->
 </body>
 </html>
             
